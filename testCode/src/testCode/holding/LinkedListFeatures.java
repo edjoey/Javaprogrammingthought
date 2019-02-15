@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class LinkedListFeatures {
 
 	public static void main(String[] args) {
-		LinkedList<Pet> pets = new LinkedList<Pet>(Pet.arrayList(5));
+		LinkedList<MyPet> pets = new LinkedList<MyPet>(MyPet.arrayList(5));
 	
 		System.out.println(pets);
 	}

@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class Pet {
+public class MyPet {
 	
 
-	public Pet() {}
+	public MyPet() {}
 
 	public String toString() {
 		Random random = new Random();
@@ -16,14 +16,14 @@ public class Pet {
 		return "FG"+ranx;
 	}
 	
-	public static List<Pet> arrayList(int number) {
-		List<Pet> petsa = new ArrayList<>();
+	public static List<MyPet> arrayList(int number) {
+		List<MyPet> petsa = new ArrayList<>();
 		for (int i = 0; i < number; i++) {
 			Random random = new Random();
 			int ranx = random.nextInt(1);
 	        String sex = ranx == 0?"男":"女";
 	        String uuid = UUID.randomUUID().toString().trim().replaceAll("-", "");
-	        Pet pet = new Pet();
+	        MyPet pet = new MyPet();
 	        pet.setName("测试ob" + i);
 	        pet.setAge(i);
 	        pet.setSex(sex);
@@ -34,8 +34,8 @@ public class Pet {
 		return petsa;
 	}
 	
-	public static Pet randomPet() {
-		Pet pet = new Pet();
+	public static MyPet randomPet() {
+		MyPet pet = new MyPet();
 		Random random = new Random();
 		int ranx = random.nextInt(1);
         String sex = ranx == 0?"男":"女";

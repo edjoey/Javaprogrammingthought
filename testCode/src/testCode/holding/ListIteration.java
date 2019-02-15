@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
+import typeinfo.pets.Pet;
+import typeinfo.pets.Pets;
+
 /**
  * Listlterator -- Iterator的子类型
  * 用于各种list的访问，支持双向移动
@@ -15,7 +18,7 @@ import java.util.ListIterator;
 public class ListIteration {
 
 	public static void main(String[] args) {
-		List<Pet> pets = Pet.arrayList(8);
+		List<Pet> pets = Pets.arrayList(8);
 		ListIterator<Pet> iListIteration = pets.listIterator();
 		//forward
 		while(iListIteration.hasNext()) {
@@ -27,7 +30,7 @@ public class ListIteration {
 		}
 		// BackWards
 		while (iListIteration.hasPrevious()) {
-			System.out.print(iListIteration.previous().getId() + "");
+			System.out.print(iListIteration.previous().id() + "");
 			System.out.println();
 			System.out.println(pets.toArray());	
 		}
@@ -36,7 +39,7 @@ public class ListIteration {
 		iListIteration = pets.listIterator(3);
 		while (iListIteration.hasNext()) {
 			iListIteration.next();
-			iListIteration.set(Pet.randomPet());
+			iListIteration.set(Pets.randomPet());
 		}
 		System.out.println(pets);
 		System.out.println();

@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import typeinfo.pets.Pet;
+import typeinfo.pets.Pets;
+
 /**
  * 迭代器
  * 1-轻量级对象
@@ -15,7 +18,7 @@ import java.util.List;
 public class SImpleIteration {
 
 	public static void main(String[] args) {
-		List<Pet> pets = Pet.arrayList(1);
+		List<Pet> pets = Pets.arrayList(1);
 		HashSet<Pet> petsHS = new HashSet<>(pets);
 		
 		
@@ -26,7 +29,7 @@ public class SImpleIteration {
 	public static void display(Iterator<Pet> iterator) {
 		while(iterator.hasNext()) {
 			Pet pet = iterator.next();
-			System.out.print(pet.getId() + ":" + pet + " ");
+			System.out.print(pet.id() + ":" + pet + " ");
 		}
 		System.out.println();
 	}
