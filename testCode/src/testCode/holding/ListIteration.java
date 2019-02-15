@@ -16,7 +16,6 @@ import typeinfo.pets.Pets;
  *
  */
 public class ListIteration {
-
 	public static void main(String[] args) {
 		List<Pet> pets = Pets.arrayList(8);
 		ListIterator<Pet> iListIteration = pets.listIterator();
