@@ -1,6 +1,6 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
-import testCode.interfaceClass.Incrementable;
+import testcode.interfaceClass.Incrementable;
 
 /**
  * 内部类闭包与回调Case

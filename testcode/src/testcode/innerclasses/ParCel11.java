@@ -1,7 +1,7 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
-import testCode.interfaceClass.Contents;
-import testCode.interfaceClass.Destination;
+import testcode.interfaceClass.Contents;
+import testcode.interfaceClass.Destination;
 
 /**
  * 嵌套类

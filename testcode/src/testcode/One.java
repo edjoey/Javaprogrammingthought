@@ -1,4 +1,4 @@
-package testCode;
+package testcode;
 
 import java.io.BufferedReader;
 import java.io.StringReader;

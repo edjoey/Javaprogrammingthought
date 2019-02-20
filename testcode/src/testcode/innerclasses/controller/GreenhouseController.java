@@ -1,4 +1,4 @@
-package testCode.innerclasses.controller;
+package testcode.innerclasses.controller;
 
 /**
  * 内部类的继承中，内部类的构造器必须连接到其外围类对象的引用，

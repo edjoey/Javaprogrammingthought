@@ -1,4 +1,4 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
 /****************************************************************************
  * 1> 为什么需要使用内部类？

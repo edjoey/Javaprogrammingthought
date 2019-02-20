@@ -1,4 +1,4 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
 interface U{
 	void a();
@@ -46,7 +46,7 @@ class UB{
 	}
 }
 
-public class practice23 {
+public class Practice23 {
 	public static void main(String[] args) {
 		int size = 5;
 		UA ua = new UA();

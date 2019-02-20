@@ -1,4 +1,4 @@
-package testCode.interfaceClass;
+package testcode.interfaceClass;
 
 /**
  * 接口内部的类

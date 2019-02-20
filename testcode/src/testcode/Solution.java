@@ -1,4 +1,4 @@
-package testCode;
+package testcode;
 
 import java.util.Arrays;
 import java.util.Comparator;
