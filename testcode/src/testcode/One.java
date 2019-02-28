@@ -84,9 +84,9 @@ public class One {
 	    lista.retainAll(listb);
 	    System.out.println(Arrays.asList(lista));
 
-	    BigDecimal DS = null;
-	    BigDecimal dss = new BigDecimal(0);
-	    System.out.println(dss.compareTo(DS));
+	    BigDecimal dss = new BigDecimal(300);
+	    BigDecimal newdss = dss.multiply(new BigDecimal(-1));
+	    System.out.println(newdss);
 	}
 	
 
