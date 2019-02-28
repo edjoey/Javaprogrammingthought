@@ -1,4 +1,4 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
 /**
  *内部类及.new

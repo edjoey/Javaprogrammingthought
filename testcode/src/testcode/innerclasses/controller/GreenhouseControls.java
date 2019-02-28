@@ -1,4 +1,4 @@
-package testCode.innerclasses.controller;
+package testcode.innerclasses.controller;
 
 /**
  * 一个特定的实现，控制灯光，水，温度调节器的开关，响玲及重新启动

@@ -1,4 +1,4 @@
-package testCode.innerclasses.controller;
+package testcode.innerclasses.controller;
 import java.util.ArrayList;
 import java.util.List;
 

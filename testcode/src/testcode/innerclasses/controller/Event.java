@@ -1,4 +1,4 @@
-package testCode.innerclasses.controller;
+package testcode.innerclasses.controller;
 
 /**
  * 控制事件通用方法

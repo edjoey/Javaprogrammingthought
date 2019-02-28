@@ -1,4 +1,4 @@
-package testCode.holding;
+package testcode.holding;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,7 +18,10 @@ import typeinfo.pets.Pets;
 public class SImpleIteration {
 
 	public static void main(String[] args) {
-		List<Pet> pets = Pets.arrayList(1);
+		List<Pet> pets = Pets.arrayList(0);
+		for (Pet pet : pets) {
+			System.out.println(1);
+		}
 		HashSet<Pet> petsHS = new HashSet<>(pets);
 		
 		

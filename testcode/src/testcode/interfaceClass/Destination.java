@@ -1,4 +1,4 @@
-package testCode.interfaceClass;
+package testcode.interfaceClass;
 
 public interface Destination {
 

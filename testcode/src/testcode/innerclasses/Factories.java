@@ -1,4 +1,4 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
 /**
  * 工厂方法搭配匿名内部类

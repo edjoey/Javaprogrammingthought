@@ -1,6 +1,6 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
-import testCode.interfaceClass.Selector;
+import testcode.interfaceClass.Selector;
 
 /**
  * 内部类链接外部类

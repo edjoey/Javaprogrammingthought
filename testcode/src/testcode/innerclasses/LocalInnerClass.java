@@ -1,4 +1,4 @@
-package testCode.innerclasses;
+package testcode.innerclasses;
 
 //Counter.class
 interface Counter{
