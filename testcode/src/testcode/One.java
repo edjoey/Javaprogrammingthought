@@ -87,6 +87,11 @@ public class One {
 	    BigDecimal dss = new BigDecimal(300);
 	    BigDecimal newdss = dss.multiply(new BigDecimal(-1));
 	    System.out.println(newdss);
+	   
+	    String ky = null;
+		if( ky.equals(null)) {
+			  System.out.println(newdss);
+		}
 	}
 	
 
