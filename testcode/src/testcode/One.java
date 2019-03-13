@@ -12,10 +12,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class One {
 
 	/**
@@ -88,23 +84,16 @@ public class One {
 	    BigDecimal newdss = dss.multiply(new BigDecimal(-1));
 	    System.out.println(newdss);
 	   
-	    String ky = null;
-		if( ky.equals(null)) {
-			  System.out.println(newdss);
-		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmm");
+		Date parse = format.parse("201903121310");
+		Date date = format.parse("201903121350");
+		long between = date.getTime() - parse.getTime();
+		long day = between / (24 * 60 * 60 * 1000);
+		long hour = (between / (60 * 60 * 1000) - day * 24);
+		long min = ((between / (60 * 1000)) - day * 24 * 60 - hour * 60);
+		long s = (between / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
+		System.out.println(day + "天" + hour + "小时" + min + "分" + s + "秒");
 	}
-	
-
-	@SuppressWarnings("deprecation")
-	public static Date getLastDayOfMonth(Date date) {
-		Calendar cDay1 = Calendar.getInstance();
-		cDay1.setTime(date);
-		int lastDay = cDay1.getActualMaximum(Calendar.DAY_OF_MONTH);
-		Date lastDate = cDay1.getTime();
-		lastDate.setDate(lastDay);
-		return lastDate;
-	}
-
 	
 	/**
 	 * 得到day的起始时间点。
@@ -138,22 +127,5 @@ public class One {
 		calendar.add(Calendar.DAY_OF_MONTH, 1);
 		calendar.add(Calendar.MILLISECOND, -1);
 		return calendar.getTime();
-	}
-
-	public static String getOneLine(String withr) {
-		StringReader sr = new StringReader(withr);
-		BufferedReader br = new BufferedReader(sr);
-		String line = null;
-		StringBuffer temp = new StringBuffer();
-		try {
-			while ((line = br.readLine()) != null) {
-				temp.append(line);
-			}
-			br.close();
-			sr.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return temp.toString();
 	}
 }

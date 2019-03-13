@@ -21,7 +21,9 @@ public class CallableDemo {
 		
 		for(Future<String> fs : results) {
 			try {
-				System.out.println(fs.get());	
+				if (fs.isDone()) {
+					System.out.println(fs.get());	
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 				return;
@@ -32,4 +34,9 @@ public class CallableDemo {
 			}
 		}
 	}
+	
+	/**
+	 * 在循环任务时，调用isDone()来获知Future是否已经完成，任务完成时只有一种结果。
+	 * 调用get()来获取,如果不先调用isDone()直接获取,get()将会阻塞，直至完成任务
+	 */
 }
