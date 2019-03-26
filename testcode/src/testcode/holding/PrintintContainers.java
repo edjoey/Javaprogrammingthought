@@ -25,7 +25,6 @@ public class PrintintContainers {
 	 * @param collection
 	 * @return
 	 */
-
 	static Collection fill(Collection<String> collection) {
 		collection.add("rat");
 		collection.add("cat");
