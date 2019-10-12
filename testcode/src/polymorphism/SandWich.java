@@ -28,6 +28,9 @@ class CheeseSon extends Cheese{
 	public CheeseSon() {
 		System.out.println("Fuck CheeseSon");
 	}
+	void testS() {
+		System.out.println("123131");
+	}
 }
 
 //SandWich此时是三层继承关系(如果把来自Object的隐含继承也算在内，就是四层)以及三个成员对象。
@@ -43,8 +46,10 @@ public class SandWich extends CheeseSon{
 	public SandWich() {
 		System.out.println("Fuck SandWich");
 	}
+	
 	public static void main(String[] args) {
 		 new SandWich();
+		 
 	}
 	
 	/**

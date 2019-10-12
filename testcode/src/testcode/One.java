@@ -2,7 +2,10 @@ package testcode;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
+import java.lang.management.ManagementFactory;
 import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,90 +13,97 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+import javax.management.Query;
+
+import org.omg.CORBA.Request;
 public class One {
 
-	/**
-	 * @param args
-	 * @throws ParseException 
-	 */
+
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
-
-	    Map<String, String> querys = new HashMap<String, String>();
-	    querys.put("key", "e75c14b864eb47ad9eb228d39866200a");
-	    querys.put("keywords", "");
-	    querys.put("subdistrict", "2");
-	    
-	    StringBuilder strBuilder = new StringBuilder();
-	    for (Map.Entry<String, String> e : querys.entrySet()) {
-	    	strBuilder.append(e.getKey()).append("=").append(e.getValue()).append("&");
-        }
-	    
-	
-		
-	    //System.out.print(querys.toString());
-	    String HTTPMethod = "POST";
-	    String Accept = "application/json";
-	    String Url = "http://qyocrbl.market.alicloudapi.com/clouds/ocr/businessLicense";
-	    String ContentMD5 = "";
-	    String ContentType = "";
-	    String Datee = "";
-	    String Headers = "X-Ca-Key,X-Ca-Timestamp,X-Ca-Nonce";
-	    
-	    
-	    String stringToSign=
-	    		HTTPMethod + "\n" +
-	    		Accept + "\n" +        
-	    		ContentMD5 + "\n"+
-	    		ContentType + "\n" +
-	    		Datee + "\n" +
-	    		Headers +Url;
-	    System.out.println(stringToSign);
-	    
-	    String oDate = "2018-09-02";
-	 
-	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	    Date t1 = sdf.parse(oDate);
-	    System.out.println(t1);
-	    System.out.println(sdf.format(t1));
-	    
-	    
-	    Integer chanagerFailer = 500;
-	    Integer result = null;
-
-	    if (chanagerFailer.equals(result)) {
-	    	 System.out.println(Integer.toString(2));
-		}
-	   
-	    //页面
-	    List<String> lista = new  ArrayList<>();
-	    lista.add("A");
-	    lista.add("D");
-	    lista.add("B");
-	    //DB
-	    List<String> listb = new  ArrayList<>();
-	    listb.add("A");
-	    listb.add("G");
-	    listb.add("B");
-	    lista.retainAll(listb);
-	    System.out.println(Arrays.asList(lista));
-
-	    BigDecimal dss = new BigDecimal(300);
-	    BigDecimal newdss = dss.multiply(new BigDecimal(-1));
-	    System.out.println(newdss);
-	   
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmm");
-		Date parse = format.parse("201903121310");
-		Date date = format.parse("201903121350");
-		long between = date.getTime() - parse.getTime();
-		long day = between / (24 * 60 * 60 * 1000);
-		long hour = (between / (60 * 60 * 1000) - day * 24);
-		long min = ((between / (60 * 1000)) - day * 24 * 60 - hour * 60);
-		long s = (between / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
-		System.out.println(day + "天" + hour + "小时" + min + "分" + s + "秒");
+	        
+//	        Integer batchCount = 20; //每批插入数目
+//	        Integer batchLastIndex = batchCount;
+//	        for (int index = 0; index < list.size(); ) {
+//	            if (batchLastIndex >= list.size()) {
+//	                batchLastIndex = list.size();
+//	                System.out.println(Arrays.toString(list.subList(index, batchLastIndex).toArray()));
+//	                System.out.println("------------------------");
+//	                break;
+//	            } else {
+//	            	System.out.println(Arrays.toString(list.subList(index, batchLastIndex).toArray()));
+//	            	System.out.println("BB------------------------");
+//	                index = batchLastIndex;// 设置下一批下标
+//	                batchLastIndex = index + (batchCount - 1);
+//	                System.out.println(batchCount);
+//	                System.out.println(batchLastIndex);
+//	            }
+//	        }
+		 String date = "2019-07-15T16:00:00.000Z";
+		 date = date.replace("Z", " UTC");//是空格+UTC
+		 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");//格式化的表达式
+		 Date d = format.parse(date);
+		 System.out.print(d);
 	}
+	
+	private static String generateExportCode(Integer num) {
+		Long  timeMillis = System.currentTimeMillis();
+		Integer beginIndex = timeMillis.toString().length()-3;
+		Integer endIndex   = timeMillis.toString().length();
+		String str = new String("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        int len = str.length();
+        char []source = str.toCharArray();
+        char []result = new char[len];
+        int count;
+        int rand_pos;
+        for(int i=0;i<len;i++){
+            count=0;
+            rand_pos = (int)(Math.random()*(len-i)+1);
+            for(int j=0;j<len;j++){
+                if(source[j]!=' '){
+                    count++;
+                }
+                if(count==rand_pos){
+                    result[i]=source[j];
+                    source[j]=' ';
+                    break;
+                }
+            }
+        }
+        
+        return new String(result).substring(0, num)+timeMillis.toString().substring(beginIndex, endIndex);
+	}
+    
+	
+    public static long getPreviousMonthLastDay() {
+    	   Calendar cDay1 = Calendar.getInstance();
+           cDay1.setTime(new Date());
+           cDay1.set(Calendar.MILLISECOND, 0);
+           return cDay1.getTimeInMillis();
+    }
+
+    public static void printList(List<Object> sourList){
+        for(int j=0;j<sourList.size();j++){
+            System.out.println(sourList.get(j));
+        }
+        System.out.println("------------------------");
+    }
 	
 	/**
 	 * 得到day的起始时间点。
@@ -128,4 +138,28 @@ public class One {
 		calendar.add(Calendar.MILLISECOND, -1);
 		return calendar.getTime();
 	}
+}
+ class DO{
+	private String name;
+	private String id;
+	private BigDecimal am;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public BigDecimal getAm() {
+		return am;
+	}
+	public void setAm(BigDecimal am) {
+		this.am = am;
+	}
+	
 }

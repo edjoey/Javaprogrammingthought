@@ -1,5 +1,6 @@
 package concurrency.runnablechange;
 
+import java.util.concurrent.TimeUnit;
 
 /**
  * 有时通过使用内部类将线程代码隐藏在类中会很有用，像这样
@@ -29,12 +30,12 @@ class InnerNamedThread{
 			}
 		}
 		public String toString() {
-			return getName() + "> " + countDown;
+			return getName() + " > " + countDown;
 		}
 	}
 	public InnerNamedThread(String name) {
 		inner = new Inner(name);
-	}	
+	}
 }
 
 //使用匿名内部类
@@ -44,14 +45,10 @@ class InnerAnonymousThread{
 	public InnerAnonymousThread(String name) {
 		t = new Thread(name) {
 			public void run() {
-				try {
-					while(true) {
-						System.out.println(this);
-						if (--countDown == 0) return;
-						sleep(100);
-					}
-				} catch (InterruptedException e) {
-					System.out.println("sleep() interrupted");
+				while(true) {
+					System.out.println(this);
+					if (--countDown == 0) return;
+					//sleep(100);
 				}
 			}
 			public String toString() {
@@ -62,10 +59,108 @@ class InnerAnonymousThread{
 	}
 }
 
+//命名的Runnable实现
+class InnerRunnable{
+	private int countDown = 5;
+	private Inner inner;
+	private class Inner implements Runnable{
+		Thread thread;
+		Inner(String name) {
+			thread = new Thread(this,name);
+			thread.start();
+		}
+		@Override
+		public void run() {
+			try {
+				while (true) {
+					System.out.println(this);
+					if (--countDown == 0) {
+						return;
+					}
+					TimeUnit.MILLISECONDS.sleep(10);
+				}
+			} catch (InterruptedException e) {
+				System.out.println("Sleep() interrupted"); 
+			}
+		}
+		public String toString() {
+			return thread.getName() + ":" + countDown;
+		}
+	}
+	
+	public InnerRunnable(String name) {
+		inner = new Inner(name);
+	}
+}
+
+//匿名的Runnable实现
+class InnerAnonymousRunnable{
+	private int countDown = 5;
+	private Thread t;
+	public InnerAnonymousRunnable(String name) {
+		t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					while(true) {
+						System.out.println(this);
+						if (--countDown == 0) {
+							return;
+						}
+						TimeUnit.MILLISECONDS.sleep(10);
+					}
+				} catch (InterruptedException e) {
+					System.out.println("Sleep() interrupted");
+				}
+			}
+			public String toString() {
+				return Thread.currentThread().getName() + 
+						": " + countDown;
+			}
+		},name);
+		t.start();
+	}
+}
+
+//在方法内部创建线程
+class ThreadMethod{
+	private int countDown = 5;
+	private Thread thread;
+	private String name;
+	public ThreadMethod(String name) {
+		this.name = name;
+	}
+	public void runTask() {
+		if (thread == null) {
+			thread = new Thread(name) {
+				public void run() {
+					try {
+						while (true) {
+							System.out.println(this);
+							if (--countDown == 0) {
+								return;
+							}
+							sleep(10);
+						}
+					} catch (InterruptedException e) {
+						System.out.println("Sleep() interrupted");
+					}
+				}
+				public String toString() {
+					return getName() + ": " + countDown;
+				}
+			};
+			thread.start();
+		}
+	}
+}
+
 
 public class ThreadVariations {
 	public static void main(String[] args) {
-		InnerAnonymousThread innerAnonymousThread = new InnerAnonymousThread("fuck,run()");
+		//new InnerNamedThread("fk,NamedThread");
+		//new InnerAnonymousThread("fk,AnonymousThread");
+		new InnerRunnable("fk,InnerRunnable");
 	}
 
 }

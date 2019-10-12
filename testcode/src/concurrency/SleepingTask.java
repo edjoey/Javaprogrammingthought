@@ -2,6 +2,7 @@ package concurrency;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 休眠
@@ -18,8 +19,9 @@ public class SleepingTask extends LiftOff{
 			while (countDown-- > 0) {
 				System.out.println(status());
 				//JDKSE5前的休眠写法
-				Thread.sleep(100);
-				//TimeUnit.MICROSECONDS.sleep(100);
+				//Thread.sleep(100);
+				TimeUnit.MICROSECONDS.sleep(100);
+				//Thread.yield();
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

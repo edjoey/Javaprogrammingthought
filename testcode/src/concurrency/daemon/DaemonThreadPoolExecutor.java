@@ -11,6 +11,4 @@ public class DaemonThreadPoolExecutor extends ThreadPoolExecutor{
 				new SynchronousQueue<Runnable>(),
 				new DaemonThreadFactory());
 	}
-
-	
 }

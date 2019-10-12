@@ -44,7 +44,7 @@ public class LocalInnerClass {
 		 * 匿名内部类编译后，生成的class文件为LocalInnerClass&1.class
 		 * 其外围类的名字加上&符和一个简单的数字作为其标示符
 		 */
-		return new Counter() {
+		return new Counter(){
 			// 匿名内部类无命名，只有一个实例初始化器
 			{
 				System.out.println("Counter()");

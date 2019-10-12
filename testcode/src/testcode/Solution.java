@@ -30,30 +30,32 @@ public class Solution {
 		int[][] stations = {{15,457},{156,194},{160,156},{230,314}
 							,{390,159},{621,20},{642,123},{679,301},{739,229},{751,174}};
 
-		System.out.println(minRefuelStops(1000, 83, stations));
+		//System.out.println(minRefuelStops(1000, 83, stations));
 		int[] numberAr = {1,3,5,6,};
-		System.out.println(indexOfArray(numberAr,0));
+		//System.out.println(indexOfArray(numberAr,0));
 		
-		Scanner s = new Scanner(System.in);
-		int row = s.nextInt();
-		//根据行数定义好二维数组，由于每一行的元素个数不同，所以不定义每一行的个数
-		int[][] arr = new int[row][];
-		//遍历二维数组
-		for(int i = 0; i < row; i++){
-		    //初始化每一行的这个一维数组
-		    arr[i] = new int[i + 1];
-		    //遍历这个一维数组，添加元素    
-		    for(int j = 0; j <= i; j++){
-		        //每一列的开头和结尾元素为1，开头的时候，j=0，结尾的时候，j=i
-		        if(j == 0 || j == i){
-		            arr[i][j] = 1;
-		        } else {//每一个元素是它上一行的元素和斜对角元素之和
-		            arr[i][j] = arr[i -1][j] + arr[i - 1][j - 1];
-		        }
-		        System.out.print(arr[i][j] + "\t");
-		    }
-		    System.out.println();
-		}
+//		Scanner s = new Scanner(System.in);
+//		int row = s.nextInt();
+//		//根据行数定义好二维数组，由于每一行的元素个数不同，所以不定义每一行的个数
+//		int[][] arr = new int[row][];
+//		//遍历二维数组
+//		for(int i = 0; i < row; i++){
+//		    //初始化每一行的这个一维数组
+//		    arr[i] = new int[i + 1];
+//		    //遍历这个一维数组，添加元素    
+//		    for(int j = 0; j <= i; j++){
+//		        //每一列的开头和结尾元素为1，开头的时候，j=0，结尾的时候，j=i
+//		        if(j == 0 || j == i){
+//		            arr[i][j] = 1;
+//		        } else {//每一个元素是它上一行的元素和斜对角元素之和
+//		            arr[i][j] = arr[i -1][j] + arr[i - 1][j - 1];
+//		        }
+//		        System.out.print(arr[i][j] + "\t");
+//		    }
+//		    System.out.println();
+//		}
+		int[] nums = {-1,0,3,5,9,12};
+		System.out.println(search(nums,13));
 	}
 	
 	/**
@@ -122,6 +124,31 @@ public class Solution {
 		}
 		return 0;
 	}
+	
+	//给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+    public static int search(int[] nums, int target) {
+    	if (nums.length == 0) {
+			return -1;
+		}
+    	int left = 0;
+    	int right = nums.length -1;
+    	int mid=(left+right)/2;
+    	System.out.println(left);
+    	System.out.println(right);
+    	System.out.println(mid);
+//    	while(left<=right) {
+//      	if(nums[mid]<target) {
+//      		left = mid+1;
+//      	}else if(nums[mid]>target) {
+//      		right = mid-1;
+//      	}else {
+//      		return mid;
+//      	}
+//      	mid = (left+right)/2;
+//      }
+      return -1;
+    }
+	
 	
 	 /**
 	  * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/

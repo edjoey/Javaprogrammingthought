@@ -85,10 +85,17 @@ class Y implements A{
  * 4）内部类是一个独立的实体
  * 
  */
-class D {}
+class D {
+ void tt() {
+	 System.out.println("123");
+ }
+}
 abstract class E {}
 class Z extends D {
-	E makeE() { return new E() {}; }
+	E makeE() { 
+		super.tt();
+		return new E() {}; 
+	}
 }
 
 

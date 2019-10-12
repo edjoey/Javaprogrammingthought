@@ -1,8 +1,13 @@
 package testcode.innerclasses;
 
 
-public class Wrapping {
-	public Wrapping() {};
+public class Wrapping  extends Parcel5{
+	 String textS = "456"; 
+
+	
+	public Wrapping() {
+
+	};
 	
 	private int i ;
 	
@@ -12,5 +17,10 @@ public class Wrapping {
 	
 	public int value() {
 		return i;
+	}
+	
+	public static void main(String[] args) {
+		
+		new Wrapping();
 	}
 }

@@ -19,27 +19,28 @@ class Egg{
 		y = new Yolk();
 	}
 	
-//	public void insertYolk(Yolk yolk) {
-//		y = yolk;
-//	}
+	public void insertYolk(Yolk yolk) {
+		y = yolk;
+	}
 }
 
 public class BigEgg extends Egg{
 
-//	public class Yolk extends Egg.Yolk{
+	public class Yolk extends Egg.Yolk{
+		public Yolk() {
+			System.out.println("BigEgg.Yolk()");
+		}
+	}
+	
+//	public class Yolk {
 //		public Yolk() {
 //			System.out.println("BigEgg.Yolk()");
 //		}
 //	}
 	
-	public class Yolk {
-		public Yolk() {
-			System.out.println("BigEgg.Yolk()");
-		}
+	public BigEgg() {
+		insertYolk(new Yolk());
 	}
-//	public BigEgg() {
-//		insertYolk(new Yolk());
-//	}
 	public static void main(String[] args) {
 		/**
 		 * 在执行new BigEgg前，思考一个问题。

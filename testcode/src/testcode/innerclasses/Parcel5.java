@@ -10,6 +10,8 @@ import testcode.interfaceClass.Destination;
  */
 public class Parcel5 {
 	
+	public String textS = "123";
+	
 	public  Destination destination (String fuck) {
 		class PDestination  implements Destination{
 			private String label;
