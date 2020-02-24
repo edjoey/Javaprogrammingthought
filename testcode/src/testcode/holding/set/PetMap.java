@@ -8,6 +8,7 @@ import typeinfo.pets.Dog;
 import typeinfo.pets.Hamster;
 import typeinfo.pets.Pet;
 
+
 public class PetMap {
 
 

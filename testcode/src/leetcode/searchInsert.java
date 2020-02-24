@@ -7,21 +7,21 @@ package leetcode;
  *
  */
 public class searchInsert {
+	
 	public static void main(String[] args) {
 		int[] nums = {1,2,3,4,5};
-		int target = 3;
-		
-		  for(int i= 0;i < nums.length;i++) {
-				if (nums[i] == target) {
-					System.out.print(i);
-					return;
-				}
-				if (target > nums[i] && (i+1 == nums.length || target < nums[i+1] )) {
-					System.out.print(++i);
-					return;
-				}
+		int target = 11111111;
+	  for(int i= 0;i < nums.length;i++) {
+			if (nums[i] == target) {
+				System.out.print(i);
+				return;
 			}
-		  	System.out.print(0);
+			if (target > nums[i] && (i+1 == nums.length || target < nums[i+1] )) {
+				System.out.print(++i);
+				return;
+			}
+		}
+	  	System.out.print(0);
 	}
 }
 

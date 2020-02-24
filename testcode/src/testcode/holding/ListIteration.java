@@ -23,7 +23,7 @@ public class ListIteration {
 		while(iListIteration.hasNext()) {
 			System.out.print(iListIteration.next() 
 					+ ":" + iListIteration.nextIndex() 
-					+ "," + iListIteration.previousIndex() + " : ");
+					+ "," + iListIteration.previousIndex());
 			System.out.println();
 				
 		}
@@ -31,7 +31,7 @@ public class ListIteration {
 		while (iListIteration.hasPrevious()) {
 			System.out.print(iListIteration.previous().id() + "");
 			System.out.println();
-			System.out.println(pets.toArray());	
+			//System.out.println(pets);	
 		}
 		
 		
@@ -41,8 +41,6 @@ public class ListIteration {
 			iListIteration.set(Pets.randomPet());
 		}
 		System.out.println(pets);
-		System.out.println();
-		System.out.println();
 		
 		//12-3
 		List<Integer> lista = 
@@ -57,8 +55,8 @@ public class ListIteration {
 			iterator2.set(tNumer);
 		}
 
-		System.out.println(lista);
-		System.out.println(listb);
+		//System.out.println(lista);
+		//System.out.println(listb);
 
 	}
 }

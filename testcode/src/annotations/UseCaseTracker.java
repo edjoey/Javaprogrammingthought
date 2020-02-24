@@ -20,7 +20,7 @@ public class UseCaseTracker {
 			if (uCase != null) {
 				System.out.println("Found Use Case:" + uCase.id() + " " + uCase.description());
 				useCases.remove(new Integer(uCase.id()));
-			}
+			}	
 		}
 		for (Integer i : useCases) {
 			System.out.println("Warning Missing use case-" + i);

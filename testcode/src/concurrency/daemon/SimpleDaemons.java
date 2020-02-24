@@ -28,6 +28,8 @@ public class SimpleDaemons implements Runnable{
 		for (int i = 0; i < 10; i++) {
 			Thread daemon = new Thread(new SimpleDaemons());
 			daemon.setDaemon(true);
+//			daemon.setName("daemonTT");
+//			daemon.setPriority(0);
 			daemon.start();
 		}
 		System.out.println("All daemons started");

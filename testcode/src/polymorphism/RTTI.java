@@ -37,7 +37,8 @@ public class RTTI {
 		};
 		ux[0].f();
 		ux[1].g();
-		
+		((MoreUseful)ux[1]).u();
+		((MoreUseful)ux[0]).u();
 		
 		/**
 		 * A-1

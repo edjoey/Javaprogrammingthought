@@ -80,12 +80,12 @@ public class Callbacks {
 		Callee1 c1 = new Callee1();
 		Callee2 c2 = new Callee2();
 		MyIncrement.f(c2);
-		Caller callee1 = new Caller(c1);
-		Caller callee2 = new Caller(c2.getCallbackReference());
-		callee1.go();
-		callee1.go();
-		callee2.go();
-		callee2.go();
+//		Caller callee1 = new Caller(c1);
+//		Caller callee2 = new Caller(c2.getCallbackReference());
+//		callee1.go();
+//		callee1.go();
+//		callee2.go();
+//		callee2.go();
 	}
 	
 }

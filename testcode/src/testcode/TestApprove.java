@@ -56,11 +56,7 @@ public class TestApprove {
 			}
 		}
 		orderEmp = orderEmp.stream().sorted(Comparator.comparingDouble(Emp::getCount).reversed()).collect(Collectors.toList());
-
 	}
-
-   
-        
 }
 
 

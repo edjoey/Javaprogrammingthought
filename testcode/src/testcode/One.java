@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -32,6 +34,8 @@ import javax.management.ObjectName;
 import javax.management.Query;
 
 import org.omg.CORBA.Request;
+
+import polymorphism.Instrument;
 public class One {
 
 
@@ -55,11 +59,53 @@ public class One {
 //	                System.out.println(batchLastIndex);
 //	            }
 //	        }
-		 String date = "2019-07-15T16:00:00.000Z";
-		 date = date.replace("Z", " UTC");//是空格+UTC
-		 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");//格式化的表达式
-		 Date d = format.parse(date);
-		 System.out.print(d);
+		int[] nums = {0,1,3,4,8,2,7,9};
+		for (int i = 0; i < nums.length - 1; i++) {
+			for (int j = 0; j < nums.length - i - 1; j++) {
+				if (nums[j+1] < nums[j]) {
+					nums[j] = nums[j] +nums[j + 1];
+					nums[j + 1] = nums[j] - nums[j + 1];
+					nums[j] = nums[j] - nums[j + 1];
+				}
+			}
+		}
+//		int n1 = 8;
+//		int n2 = 9;
+//		n1 = n2 + n1;
+//		n2 = n1 - n2;
+//		n1 = n1 - n2;
+//		System.out.print(n1 + " " +n2);
+//		
+		List<DO> arrs = new ArrayList<>();
+		DO do1 = new DO();
+		do1.setId("JD1Z");
+		DO do2 = new DO();
+		do2.setId("JD9Z");
+		DO do3 = new DO();
+		do3.setId("BJ1Z");
+		DO do4 = new DO();
+		do4.setId("BJ2Z");
+		DO do5 = new DO();
+		do5.setId("AB1Z");
+		DO do6 = new DO();
+		do6.setId("AC0Z");
+		//System.out.print(Arrays.toString(nums));
+		//stream().sorted(Comparator.comparingDouble(OperationMaterialEmpOrgInfo::getNumberOperations).reversed()).collect(Collectors.toList());
+//		arrs.sort(new Comparator<DO>() {
+//			@Override
+//			public int compare(DO o1, DO o2) {
+//				if (o1.getId().compareTo(o2.getId()) < 0) {
+//					return -1;
+//				}
+//				return 0;
+//			}
+//		});
+		//System.out.print(arrs.stream().sorted(Comparator.comparing(DO::getId)).collect(Collectors.toList()));
+//		for (DO ar : arrs) {
+//			System.out.println(ar.getId());
+//		}
+		
+		 
 	}
 	
 	private static String generateExportCode(Integer num) {
@@ -160,6 +206,10 @@ public class One {
 	}
 	public void setAm(BigDecimal am) {
 		this.am = am;
+	}
+	@Override
+	public String toString() {
+		return "DO [name=" + name + ", id=" + id + ", am=" + am + "]";
 	}
 	
 }

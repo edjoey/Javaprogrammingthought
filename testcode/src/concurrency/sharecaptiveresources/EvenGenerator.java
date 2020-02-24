@@ -5,7 +5,7 @@ public class EvenGenerator extends InGenerator{
 
 	@Override
 	public int next() {
-		++currentEvenValue;
+		//++currentEvenValue;
 		//测试更快的发现问题;
 		Thread.yield();
 		++currentEvenValue;
@@ -13,7 +13,7 @@ public class EvenGenerator extends InGenerator{
 	}
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 1; i++) {
 			EvenChecker.test(new EvenGenerator());
 		}
 	}

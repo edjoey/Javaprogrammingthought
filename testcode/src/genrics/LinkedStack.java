@@ -1,20 +1,20 @@
 package genrics;
 
 /**
- * 内部链式存储机制
+ * 内部单链式存储机制
  * @author joeyzhou
  *
  */
 public class LinkedStack<T> {
 	
-	private static class Node<F>{
-		F item;
-		Node<F> next;
+	private class Node{
+		T item;
+		Node next;
 		Node(){
 			item = null;
 			next = null;
 		}
-		Node(F item,Node<F> next){
+		Node(T item,Node next){
 			this.item = item;
 			this.next = next;
 		}
@@ -24,10 +24,10 @@ public class LinkedStack<T> {
 			return item == null && next == null;
 		}
 	}
-	private Node<T> top = new Node<T>();
+	private Node top = new Node();
 	
 	public void push(T item) {
-		top = new Node<T>(item,top);
+		top = new Node(item,top);
 	}
 	
 	public T pop() {
@@ -36,6 +36,10 @@ public class LinkedStack<T> {
 			top = top.next;
 		}
 		return result;
+	}
+	
+	public void remove() {
+		
 	}
 	
 	public static void main(String[] args) {

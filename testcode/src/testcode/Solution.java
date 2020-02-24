@@ -33,7 +33,7 @@ public class Solution {
 		//System.out.println(minRefuelStops(1000, 83, stations));
 		int[] numberAr = {1,3,5,6,};
 		//System.out.println(indexOfArray(numberAr,0));
-		
+		 
 //		Scanner s = new Scanner(System.in);
 //		int row = s.nextInt();
 //		//根据行数定义好二维数组，由于每一行的元素个数不同，所以不定义每一行的个数

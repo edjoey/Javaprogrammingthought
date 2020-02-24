@@ -37,7 +37,7 @@ public class BigEgg extends Egg{
 //			System.out.println("BigEgg.Yolk()");
 //		}
 //	}
-	
+//	
 	public BigEgg() {
 		insertYolk(new Yolk());
 	}
@@ -51,24 +51,5 @@ public class BigEgg extends Egg{
 		new BigEgg();
 	}
 	
-	/* output：
-	 * 
-	 * New Egg
-	 * Egg.Yolk()
-	 */
 	
-	/**
-	 * 看到输出结果后，应该已经知道了，两个内部类是完全独立的，分别处于在不同的命名空间内。
-	 * 但是这并不能说明内部类是不可以覆盖，想覆盖内部类需要进行特定的实现，
-	 * 
-	 * 注意一下，被注释掉的那三段代码，会发现BigEgg中被注释的Yolk，明确的继承了Egg.Yolk。
-	 * 并且覆盖了其中的方法，insertYolk()方法允许BigEgg2将它自己的Yolk对象向上转型为Egg2
-	 * 的引用y。这时被覆盖的新版Yolk会被执行。
-	 * 
-	 * output：
-	 * New Egg
-	 * Egg.Yolk()
-	 * Egg.Yolk()
-	 * BigEgg.Yolk()
-	 */
 }
